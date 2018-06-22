@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2017 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- User accounts -->
+
+	<bean id="userAccountAdmin" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	
+	
+	<bean id="userAccountUser1" class="security.UserAccount">
+		<property name="username" value="user1" />
+		<property name="password" value="24c9e15e52afc47c225b757e7bee1f9d" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="USER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccountUser2" class="security.UserAccount">
+		<property name="username" value="user2" />
+		<property name="password" value="7e58d63b60197ceb55a1c487989a3720" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="USER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccountUser3" class="security.UserAccount">
+		<property name="username" value="user3" />
+		<property name="password" value="92877af70a45fd6a2ed7fe81e1236b78" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="USER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccountUser4" class="security.UserAccount">
+		<property name="username" value="user4" />
+		<property name="password" value="3f02ebe3d7929b091e3d8ccfde2f3bc6" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="USER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccountAgent1" class="security.UserAccount">
+		<property name="username" value="agent1" />
+		<property name="password" value="83a87fd756ab57199c0bb6d5e11168cb" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AGENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccountAgent2" class="security.UserAccount">
+		<property name="username" value="agent2" />
+		<property name="password" value="b1a4a6b01cc297d4677c4ca6656e14d7" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AGENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccountAgent3" class="security.UserAccount">
+		<property name="username" value="agent3" />
+		<property name="password" value="6f097a447415dd5030d579a9051165f0" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AGENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccountAgent4" class="security.UserAccount">
+		<property name="username" value="agent4" />
+		<property name="password" value="0d7745d57a8ae3fcacdd9fe6e54cac8a" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AGENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+		<!-- Admin -->
+		
+		<bean id="admin" class="domain.Admin">
+		<property name="userAccount" ref="userAccountAdmin" />
+		<property name="name" value="admin 1" />
+		<property name="surname" value="surname admin 1" />
+		<property name="postalAddress" value="postal Adress admin 1" />
+		<property name="email" value="admin@acmenewspaper.com" />
+		<property name="phone" value="+34617557203" />
+	</bean>
+	
+		<!-- Users -->
+		
+		<bean id="user1" class="domain.User">
+		<property name="userAccount" ref="userAccountUser1" />
+		<property name="name" value="user 1" />
+		<property name="surname" value="surname user 1" />
+		<property name="postalAddress" value="postal Adress user 1" />
+		<property name="email" value="user1@acmenewspaper.com" />
+		<property name="phone" value="+34617557203" />
+		<property name="articles">
+			<list>
+				 <ref bean="article1"/> 
+				 <ref bean="article2"/> 
+				 <ref bean="article3"/> 
+				 <ref bean="article4"/>
+			</list>
+		</property>
+		
+		<property name="newspapers">
+			<list>
+				 <ref bean="newspaper1"/> 
+				 <ref bean="newspaper2"/> 
+				 <ref bean="newspaper3"/> 
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="user2" class="domain.User">
+		<property name="userAccount" ref="userAccountUser2" />
+		<property name="name" value="user 2" />
+		<property name="surname" value="surname user 2" />
+		<property name="postalAddress" value="postal Adress user 2" />
+		<property name="email" value="user2@acmenewspaper.com" />
+		<property name="phone" value="+34617557203" />
+		<property name="articles">
+			<list>
+				 <ref bean="article9"/> 
+				 <ref bean="article11"/> 
+				 <ref bean="article6"/> 
+			</list>
+		</property>
+		<property name="newspapers">
+			<list>
+				 <ref bean="newspaper6"/> 
+				 <ref bean="newspaper8"/>  
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="user3" class="domain.User">
+		<property name="userAccount" ref="userAccountUser3" />
+		<property name="name" value="user 3" />
+		<property name="surname" value="surname user 3" />
+		<property name="postalAddress" value="postal Adress user 3" />
+		<property name="email" value="user3@acmenewspaper.com" />
+		<property name="phone" value="+34648213455" />
+		<property name="articles">
+			<list>
+				 
+				 <ref bean="article10"/> 
+				 <ref bean="article5"/> 
+				 <ref bean="article7"/> 
+			</list>
+		</property>
+		<property name="newspapers">
+			<list>
+				 <ref bean="newspaper4"/> 
+				 <ref bean="newspaper7"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="user4" class="domain.User">
+		<property name="userAccount" ref="userAccountUser4" />
+		<property name="name" value="user 4" />
+		<property name="surname" value="surname user 4" />
+		<property name="postalAddress" value="postal Adress user 4" />
+		<property name="email" value="user4@acmenewspaper.com" />
+		<property name="phone" value="+34648213455" />
+		<property name="articles">
+			<list>
+				 <ref bean="article12"/>
+				 <ref bean="article8"/>
+			</list>
+		</property>
+		<property name="newspapers">
+			<list>
+				 <ref bean="newspaper5"/>
+				 <ref bean="newspaper9"/> 
+			</list>
+		</property>
+	</bean>
+	
+		<!-- Customers -->
+		
+	 
+	
+	<!-- Agents -->
+	<bean id="agent1" class="domain.Agent">
+		<property name="userAccount" ref="userAccountAgent1" />
+		<property name="name" value="agent 1" />
+		<property name="surname" value="surname agent 1" />
+		<property name="postalAddress" value="postal Adress agent 1" />
+		<property name="email" value="agent1@acmenewspaper.com" />
+		<property name="phone" value="+34652582643" />
+		<property name="advertisements">
+			<list>
+				<ref bean="advertisement1" />
+				<ref bean="advertisement2" />
+				<ref bean="advertisement3" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="agent2" class="domain.Agent">
+		<property name="userAccount" ref="userAccountAgent2" />
+		<property name="name" value="agent 2" />
+		<property name="surname" value="surname agent 2" />
+		<property name="postalAddress" value="postal Adress agent 2" />
+		<property name="email" value="agent2@acmenewspaper.com" />
+		<property name="phone" value="+34652582643" />
+		<property name="advertisements">
+			<list>
+				<ref bean="advertisement4" />
+				<ref bean="advertisement5" />
+				<ref bean="advertisement7" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="agent3" class="domain.Agent">
+		<property name="userAccount" ref="userAccountAgent3" />
+		<property name="name" value="agent 3" />
+		<property name="surname" value="surname agent 3" />
+		<property name="postalAddress" value="postal Adress agent 3" />
+		<property name="email" value="agent3@acmenewspaper.com" />
+		<property name="phone" value="+34352582643" />
+		<property name="advertisements">
+			<list>
+				<ref bean="advertisement6" />
+				<ref bean="advertisement8" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="agent4" class="domain.Agent">
+		<property name="userAccount" ref="userAccountAgent4" />
+		<property name="name" value="agent 4" />
+		<property name="surname" value="surname agent 4" />
+		<property name="postalAddress" value="postal Adress agent 4" />
+		<property name="email" value="agent4@acmenewspaper.com" />
+		<property name="phone" value="+34654582643" />
+		<property name="advertisements">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+		<!-- Credit Cards -->
+
+	 <bean id="creditCard1" class="domain.CreditCard">
+		<property name="holderName" value="holder name 1" />
+		<property name="brandName" value="Brand name 1" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="06" />
+		<property name="expirationYear" value="20" />
+		<property name="cvv" value="123" />
+	</bean> 
+	
+	<bean id="creditCard2" class="domain.CreditCard">
+		<property name="holderName" value="holder name 2" />
+		<property name="brandName" value="Brand name 2" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="01" />
+		<property name="expirationYear" value="21" />
+		<property name="cvv" value="123" />
+	</bean> 
+	
+	<bean id="creditCard3" class="domain.CreditCard">
+		<property name="holderName" value="holder name 3" />
+		<property name="brandName" value="Brand name 3" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="01" />
+		<property name="expirationYear" value="19" />
+		<property name="cvv" value="614" />
+	</bean> 
+	
+	<bean id="creditCard4" class="domain.CreditCard">
+		<property name="holderName" value="holder name 4" />
+		<property name="brandName" value="Brand name 4" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="01" />
+		<property name="expirationYear" value="19" />
+		<property name="cvv" value="614" />
+	</bean> 
+	
+	<bean id="creditCard5" class="domain.CreditCard">
+		<property name="holderName" value="Agent1 holder name 5" />
+		<property name="brandName" value="Brand name 5" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="01" />
+		<property name="expirationYear" value="19" />
+		<property name="cvv" value="614" />
+	</bean> 
+	
+	<bean id="creditCard6" class="domain.CreditCard">
+		<property name="holderName" value="Agent2 holder name 6" />
+		<property name="brandName" value="Brand name 6" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="01" />
+		<property name="expirationYear" value="19" />
+		<property name="cvv" value="614" />
+	</bean> 
+	
+
+		<!-- Subcriptions -->
+		
+		
+	
+		<!-- Newspapers	 -->
+		
+	<bean id="newspaper1" class="domain.Newspaper">
+		<property name="title" value="title newspaper 1" />
+		<property name="publicationDate" value="2017/09/21" />
+		<property name="description" value="description newspaper 1" />
+		<property name="picture" value="https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg" />
+		<property name="publisher" ref="user1" />
+		<property name="articles">
+			<list>
+				<ref bean="article1"/>
+			</list>
+		</property>
+		<property name="advertisements">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="newspaper2" class="domain.Newspaper">
+		<property name="title" value="title newspaper 2" />
+		<property name="publicationDate"><null /></property>
+		<property name="description" value="description newspaper 2 sex" />
+		<property name="picture" value="https://supergracioso.com/wp-content/uploads/2015/05/Errores-en-peri%C3%B3dicos-%C2%A1INCRE%C3%8DBLES-Parte-I.jpg" />
+		<property name="publisher" ref="user1" />
+		<property name="articles">
+			<list>
+				<ref bean="article2"/>
+			</list>
+		</property>
+		<property name="advertisements">
+			<list>
+				<ref bean="advertisement1"/>
+				<ref bean="advertisement4"/>
+				<ref bean="advertisement6"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="newspaper3" class="domain.Newspaper">
+		<property name="title" value="title accidente newspaper 3" />
+		<property name="publicationDate"><null /></property>
+		<property name="description" value="description newspaper 3" />
+		<property name="picture" value="https://supergracioso.com/wp-content/uploads/2015/05/Errores-en-peri%C3%B3dicos-%C2%A1INCRE%C3%8DBLES-Parte-I.jpg" />
+		
+		<property name="publisher" ref="user1" />
+		<property name="articles">
+			<list>
+				<ref bean="article4"/>
+				<ref bean="article3"/>
+			</list>
+		</property>
+		<property name="advertisements">
+			<list>
+			<ref bean="advertisement2"/>
+			<ref bean="advertisement5"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="newspaper4" class="domain.Newspaper">
+		<property name="title" value="title newspaper 4" />
+		<property name="publicationDate" value="2017/09/21" />
+		<property name="description" value="description newspaper 4" />
+		<property name="picture" value="https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg" />
+		
+		<property name="publisher" ref="user3" />
+		<property name="articles">
+			<list>
+				<ref bean="article5"/>
+				<ref bean="article7"/>
+			</list>
+		</property>
+		<property name="advertisements">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="newspaper5" class="domain.Newspaper">
+		<property name="title" value="title newspaper 5" />
+		<property name="publicationDate" value="2017/09/21" />
+		<property name="description" value="description newspaper 5 cialis" />
+		<property name="picture" value="https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg" />
+	
+		<property name="publisher" ref="user4" />
+		<property name="articles">
+			<list>
+				<ref bean="article8"/>
+			</list>
+		</property>
+		<property name="advertisements">
+			<list>
+			<ref bean="advertisement3"/>
+			<ref bean="advertisement7"/>
+			<ref bean="advertisement8"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="newspaper6" class="domain.Newspaper">
+		<property name="title" value="title newspaper 6" />
+		<property name="publicationDate" value="2017/09/21" />
+		<property name="description" value="description amanecer newspaper 6" />
+		<property name="picture" value="https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg" />
+	
+		<property name="publisher" ref="user2" />
+		<property name="articles">
+			<list>
+				<ref bean="article6"/>
+				<ref bean="article9"/>
+			</list>
+		</property>
+		<property name="advertisements">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="newspaper7" class="domain.Newspaper">
+		<property name="title" value="title terror newspaper 7" />
+		<property name="publicationDate" value="2017/09/21" />
+		<property name="description" value="description newspaper 7" />
+		<property name="picture" value="https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg" />
+		
+		<property name="publisher" ref="user3" />
+		<property name="articles">
+			<list>
+				<ref bean="article10"/>
+			</list>
+		</property>
+		<property name="advertisements">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="newspaper8" class="domain.Newspaper">
+		<property name="title" value="title newspaper 8" />
+		<property name="publicationDate" value="2017/09/21" />
+		<property name="description" value="description newspaper 8" />
+		<property name="picture" value="https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg" />
+
+		<property name="publisher" ref="user2" />
+		<property name="articles">
+			<list>
+				<ref bean="article11"/>
+			</list>
+		</property>
+		<property name="advertisements">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="newspaper9" class="domain.Newspaper">
+		<property name="title" value="title newspaper 9" />
+		<property name="publicationDate"><null /></property>
+		<property name="description" value="description newspaper 9" />
+		<property name="picture" value="https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg" />
+		
+		<property name="publisher" ref="user4" />
+		<property name="articles">
+			<list>
+				<ref bean="article12"/>
+			</list>
+		</property>
+		<property name="advertisements">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+		
+		<!-- Articles -->
+		
+	 <bean id="article1" class="domain.Article">
+		<property name="publishedMoment" value="2017/09/20" />
+		<property name="title" value="title article 1 sex" />
+		<property name="summary" value="summary article 1 this article is so long" />
+		<property name="body" value="body chirp 1" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user1" />
+		<property name="newspaper" ref="newspaper1" />
+		<property name="draftMode" value="false"/>
+	</bean> 
+	
+	<bean id="article2" class="domain.Article">
+		<property name="publishedMoment" value="2017/10/21" />
+		<property name="title" value="title article 2" />
+		<property name="body" value="body chirp 2 cialis" />
+		<property name="summary" value="summary article 1 this article is so long and interesting" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user1" />
+		<property name="newspaper" ref="newspaper2" />
+		<property name="draftMode" value="false"/>
+	</bean>
+	
+	<bean id="article3" class="domain.Article">
+		<property name="publishedMoment"><null /></property>
+		<property name="title" value="title article 3" />
+		<property name="summary" value="summary article 1 this article is so refreshing" />
+		<property name="body" value="body chirp 3" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user1" />
+		<property name="newspaper" ref="newspaper3" />
+		<property name="draftMode" value="true"/>
+	</bean> 
+	
+	<bean id="article4" class="domain.Article">
+		<property name="publishedMoment"><null /></property>
+		<property name="title" value="title article 4" />
+		<property name="summary" value="summary article 1 this article is so long" />
+		<property name="body" value="body chirp 4" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user1" />
+		<property name="newspaper" ref="newspaper3" />
+		<property name="draftMode" value="true"/>
+	</bean> 
+	
+	<bean id="article5" class="domain.Article">
+		<property name="publishedMoment" value="2017/09/20" />
+		<property name="title" value="title article 5" />
+		<property name="summary" value="summary article 1 this article is so cool viagra" />
+		<property name="body" value="body chirp 5" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user3" />
+		<property name="newspaper" ref="newspaper4" />
+		<property name="draftMode" value="false"/>
+	</bean> 
+	
+	<bean id="article6" class="domain.Article">
+		<property name="publishedMoment" value="2017/09/20" />
+		<property name="title" value="title article 6" />
+		<property name="summary" value="summary especial article 6 this article is so long" />
+		<property name="body" value="body chirp 6" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user2" />
+		<property name="newspaper" ref="newspaper6" />
+		<property name="draftMode" value="false"/>
+	</bean>
+	
+	<bean id="article7" class="domain.Article">
+		<property name="publishedMoment" value="2017/09/20" />
+		<property name="title" value="title article 7" />
+		<property name="summary" value="summary article 1 this article is so long" />
+		<property name="body" value="body chirp 7" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user3" />
+		<property name="newspaper" ref="newspaper4" />
+		<property name="draftMode" value="false"/>
+	</bean>
+	
+	<bean id="article8" class="domain.Article">
+		<property name="publishedMoment" value="2017/09/20" />
+		<property name="title" value="title article 8" />
+		<property name="summary" value="summary article 1 this article is so long" />
+		<property name="body" value="body impresionante chirp 8" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user4" />
+		<property name="newspaper" ref="newspaper5" />
+		<property name="draftMode" value="false"/>
+	</bean> 
+	
+	
+	<bean id="article9" class="domain.Article">
+		<property name="publishedMoment" value="2016/10/21" />
+		<property name="title" value="title article 9" />
+		<property name="summary" value="summary article 1 this article is so long" />
+		<property name="body" value="body chirp 9" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user2" />
+		<property name="newspaper" ref="newspaper6" />
+		<property name="draftMode" value="false"/>
+	</bean> 
+	
+	<bean id="article10" class="domain.Article">
+		<property name="publishedMoment" value="2016/10/21" />
+		<property name="title" value="title article 10" />
+		<property name="summary" value="summary article 1 this article is so long" />
+		<property name="body" value="body chirp 10" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user3" />
+		<property name="newspaper" ref="newspaper7" />
+		<property name="draftMode" value="false"/>
+	</bean>
+	
+	<bean id="article11" class="domain.Article">
+		<property name="publishedMoment" value="2016/10/21" />
+		<property name="title" value="title article 11" />
+		<property name="summary" value="summary article 1 this article is so long" />
+		<property name="body" value="body chirp 11" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user2" />
+		<property name="newspaper" ref="newspaper8" />
+		<property name="draftMode" value="false"/>
+	</bean>
+	
+	<bean id="article12" class="domain.Article">
+		<property name="publishedMoment" value="2016/10/21" />
+		<property name="title" value="title article 12" />
+		<property name="summary" value="summary article 1 this article is so long" />
+		<property name="body" value="body chirp 12" />
+		<property name="pictures">
+			<list>
+			<value>https://www.cerebriti.com/uploads/0b8d55790024b6a75aeb4d9772ae2706.jpg</value>
+			<value>https://img.blogs.es/anexom/wp-content/uploads/2016/10/Peridicos-920x515.jpg</value>
+			<value>https://cibercult.files.wordpress.com/2014/06/periodico1.jpg</value>
+			</list>
+		</property>
+		<property name="writer" ref="user4" />
+		<property name="newspaper" ref="newspaper9" />
+		<property name="draftMode" value="false"/>
+	</bean> 
+
+		<!-- Configuration System -->
+	
+		 <bean id="configurationSystem" class="domain.ConfigurationSystem">
+			<property name="tabooWords">
+				<list>
+					<ref bean="tabooWord1"/>
+					<ref bean="tabooWord2"/>
+					<ref bean="tabooWord3"/>
+					<ref bean="tabooWord4"/>
+				</list>
+			</property>
+		</bean>   
+		
+		<!-- Taboo words -->
+	
+	<bean id="tabooWord1" class="domain.TabooWord">
+		<property name="name" value="sex"/>
+		<property name="default_word" value="true"/>
+	</bean>   
+	
+	<bean id="tabooWord2" class="domain.TabooWord">
+		<property name="name" value="sexo"/>
+		<property name="default_word" value="true"/>
+	</bean>
+	
+	<bean id="tabooWord3" class="domain.TabooWord">
+		<property name="name" value="viagra"/>
+		<property name="default_word" value="true"/>
+	</bean>
+	
+	<bean id="tabooWord4" class="domain.TabooWord">
+		<property name="name" value="cialis"/>
+		<property name="default_word" value="true"/>
+	</bean>
+	<bean id="tabooWord5" class="domain.TabooWord">
+		<property name="name" value="cialis 1"/>
+		<property name="default_word" value="false"/>
+	</bean>
+	
+	<!-- Advertisements -->
+	
+	<bean id="advertisement1" class="domain.Advertisement">
+		<property name="title" value="title 1 Agent1" />
+		<property name="targetPage" value="http://www.abc.es/espana/abci-cinco-policias-heridos-tras-batalla-campal-contra-clanes-estacion-linares-baeza-201804301112_noticia.html" />
+		<property name="banner" value="https://sumedico.com/wp-content/uploads/2016/06/C%C3%B3mo_saber_si_tu_gato_te_quiere.jpg" />
+		<property name="creditCard" ref="creditCard5" />
+		<property name="agent" ref="agent1" />
+	</bean>
+	
+	<bean id="advertisement2" class="domain.Advertisement">
+		<property name="title" value="title 2 Agent1" />
+		<property name="targetPage" value="http://www.abc.es/espana/castilla-leon/abci-hombre-mata-paliza-expareja-burgos-201804300824_noticia.html" />
+		<property name="banner" value="https://www.petdarling.com/articulos/wp-content/uploads/2014/11/eliminar-pis-de-gato.jpg" />
+		<property name="creditCard" ref="creditCard5" />
+		<property name="agent" ref="agent1" />
+	</bean>
+	
+	<bean id="advertisement3" class="domain.Advertisement">
+		<property name="title" value="title 3 Agent1" />
+		<property name="targetPage" value="http://www.abc.es/espana/abci-juez-pidio-absolver-manada-no-tiene-ningun-expediente-ultimos-cuatro-anos-201804301228_noticia.html" />
+		<property name="banner" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWHlWg-bUOzO10ILqRtdH_xY9gLwxRUUDFIKJHUTEqbQq3_Cg" />
+		<property name="creditCard" ref="creditCard5" />
+		<property name="agent" ref="agent1" />
+	</bean>
+	
+	<bean id="advertisement4" class="domain.Advertisement">
+		<property name="title" value="title 4 Agent2" />
+		<property name="targetPage" value="http://www.abc.es/sociedad/abci-tiempo-puente-mayo-primavera-resiste-volver-201804301655_noticia.html" />
+		<property name="banner" value="https://t2.uc.ltmcdn.com/images/5/0/6/img_como_saber_si_un_gato_es_macho_o_hembra_con_fotos_10605_600.jpg" />
+		<property name="creditCard" ref="creditCard5" />
+		<property name="agent" ref="agent2" />
+	</bean>
+	
+	<bean id="advertisement5" class="domain.Advertisement">
+		<property name="title" value="title 5 Agent2 sexo" />
+		<property name="targetPage" value="http://www.abc.es/sociedad/abci-tiempo-puente-mayo-primavera-resiste-volver-201804301655_noticia.html" />
+		<property name="banner" value="https://cdn3.computerhoy.com/sites/computerhoy.com/files/styles/fullcontent/public/novedades/entender-gato.jpg?itok=GQSe1IVJ" />
+		<property name="creditCard" ref="creditCard5" />
+		<property name="agent" ref="agent2" />
+	</bean>
+	
+	<bean id="advertisement6" class="domain.Advertisement">
+		<property name="title" value="title 6 Agent3 viagra" />
+		<property name="targetPage" value="http://www.abc.es/sociedad/abci-tiempo-puente-mayo-primavera-resiste-volver-201804301655_noticia.html" />
+		<property name="banner" value="https://img.bekiamascotas.com/articulos/portada/51000/51644-h2.jpg" />
+		<property name="creditCard" ref="creditCard5" />
+		<property name="agent" ref="agent3" />
+	</bean>
+	
+	<bean id="advertisement7" class="domain.Advertisement">
+		<property name="title" value="title 7 Agent2 cialis" />
+		<property name="targetPage" value="http://www.abc.es/sociedad/abci-tiempo-puente-mayo-primavera-resiste-volver-201804301655_noticia.html" />
+		<property name="banner" value="https://sumedico.com/wp-content/uploads/2017/12/por-qu%C3%A9-adoptar-un-gato.jpg" />
+		<property name="creditCard" ref="creditCard5" />
+		<property name="agent" ref="agent2" />
+	</bean>
+	
+		<bean id="advertisement8" class="domain.Advertisement">
+		<property name="title" value="title 8 Agent3" />
+		<property name="targetPage" value="http://www.abc.es/sociedad/abci-tiempo-puente-mayo-primavera-resiste-volver-201804301655_noticia.html" />
+		<property name="banner" value="https://t2.ea.ltmcdn.com/es/images/3/4/8/img_como_ensenar_a_un_gato_a_sentarse_20843_600.jpg" />
+		<property name="creditCard" ref="creditCard5" />
+		<property name="agent" ref="agent3" />
+	</bean>
+	
+	
+	</beans>
