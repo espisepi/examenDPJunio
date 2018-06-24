@@ -300,4 +300,37 @@
 	</display:table>
 </security:authorize>
 
+<display:table pagesize="5" class="displaytag" keepStatus="true"
+	name="auditsList" requestURI="${requestURI}" id="rowAudits">
 
+	<spring:message code="audits.ticker" var="tickerHeader" />
+	<display:column property="ticker" title="${tickerHeader}"
+		sortable="true" />
+
+	<spring:message code="audits.title" var="titleHeader" />
+	<display:column property="title" title="${titleHeader}" sortable="true" />
+
+	<spring:message code="audits.description" var="descriptionHeader" />
+	<display:column property="description" title="${descriptionHeader}"
+		sortable="true" />
+
+	<spring:message code="audits.gauge" var="gaugeHeader" />
+	<jstl:if test="${rowAudits.gauge==1}">
+		<display:column property="gauge" title="${gaugeHeader}"
+			sortable="true" style="background-color: #ffffe0" />
+	</jstl:if>
+	<jstl:if test="${rowAudits.gauge==2}">
+		<display:column property="gauge" title="${gaugeHeader}"
+			sortable="true" style="background-color: #ffe4b5" />
+	</jstl:if>
+	<jstl:if test="${rowAudits.gauge==3}">
+		<display:column property="gauge" title="${gaugeHeader}"
+			sortable="true" style="background-color: #0000ff" />
+	</jstl:if>
+
+	<spring:message code="audits.format.moment" var="pattern"></spring:message>
+	<spring:message code="audits.moment" var="momentHeader" />
+	<display:column property="moment" title="${momentHeader}"
+		sortable="true" format="${pattern}" />
+
+</display:table>

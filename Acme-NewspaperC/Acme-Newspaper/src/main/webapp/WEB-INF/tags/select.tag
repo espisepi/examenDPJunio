@@ -28,6 +28,7 @@
 <%@ attribute name="itemLabel" required="true" %>
 
 <%@ attribute name="id" required="false" %>
+<%@ attribute name="idDiv" required="false" %>
 <%@ attribute name="onchange" required="false" %>
 
 <jstl:if test="${id == null}">
@@ -39,7 +40,6 @@
 </jstl:if>
 
 <%-- Definition --%>
-
 <div>
 	<form:label path="${path}">
 		<spring:message code="${code}" />

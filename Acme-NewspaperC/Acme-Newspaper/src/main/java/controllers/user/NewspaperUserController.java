@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ArticleService;
+import services.AuditsService;
 import services.NewspaperService;
 import services.UserService;
 import controllers.AbstractController;
@@ -33,6 +34,9 @@ public class NewspaperUserController extends AbstractController {
 
 	@Autowired
 	private ArticleService		articleService;
+
+	@Autowired
+	private AuditsService		auditsService;
 
 
 	//List my newspapers-----------------------------------------------------------
@@ -202,6 +206,7 @@ public class NewspaperUserController extends AbstractController {
 		result.addObject("newspaper", newspaper);
 		result.addObject("articles", articles);
 		result.addObject("hideAttributes", hideAttributes);
+		result.addObject("auditsList", this.auditsService.findByNewspaperId(newspaper.getId()));
 		result.addObject("requestURI", "newspaper/user/display.do");
 
 		return result;
