@@ -159,7 +159,8 @@ public class AuditsService {
 	public Collection<Audits> findByNewspaperId(final int newspaperId) {
 		Collection<Audits> result;
 
-		result = this.auditsRepository.findByNewspaperId(newspaperId);
+		final Date actual = new Date();
+		result = this.auditsRepository.findByNewspaperId(newspaperId, actual);
 
 		return result;
 	}

@@ -2,6 +2,7 @@
 package repositories;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,7 +22,7 @@ public interface AuditsRepository extends JpaRepository<Audits, Integer> {
 	@Query("select a from Audits a where a.admin.id=?1")
 	Collection<Audits> findByAdminId(int adminId);
 
-	@Query("select a from Audits a where a.newspaper.id=?1 and a.draftMode=false and (a.moment<=current_date or a.moment=null)")
-	Collection<Audits> findByNewspaperId(int newspaperId);
+	@Query("select a from Audits a where a.newspaper.id=?1 and a.draftMode=false and (a.moment<=?2 or a.moment=null)")
+	Collection<Audits> findByNewspaperId(int newspaperId, Date actual);
 
 }

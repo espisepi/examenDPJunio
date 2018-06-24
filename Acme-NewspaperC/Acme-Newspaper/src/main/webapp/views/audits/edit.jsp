@@ -27,8 +27,6 @@
 	<form:hidden path="version" />
 
 	<!-- ATRIBUTOS -->
-	<acme:textbox code="audits.ticker" path="ticker" readonly="true" />
-	<br />
 	<acme:textbox code="audits.title" path="title" />
 	<br />
 	<acme:textbox code="audits.description" path="description" />

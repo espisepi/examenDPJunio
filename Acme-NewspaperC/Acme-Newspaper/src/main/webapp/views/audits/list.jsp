@@ -53,16 +53,30 @@
 	<display:column property="moment" title="${momentHeader}"
 		sortable="true" format="${pattern}" />
 
-	<spring:message code="audits.draftMode" var="draftModeHeader" />
-	<display:column property="draftMode" title="${draftModeHeader}"
-		sortable="true" />
+	<spring:message code="audits.draftMode" var="draftMode" />
+		<display:column title="${draftMode}" sortable="true">
+			<jstl:if test="${row.draftMode==true}">
+				<div style="width: 30px; height: 30px; margin-left: 20px;">
+
+					<img src="images/yes.png" width="30" height="30">
+				</div>
+			</jstl:if>
+			<jstl:if test="${row.draftMode==false}">
+				<div style="width: 30px; height: 30px; margin-left: 20px;">
+
+					<img src="images/no.png" width="30" height="30">
+				</div>
+			</jstl:if>
+		</display:column>
 
 	<spring:message code="audits.newspaper" var="display" />
 	<display:column title="${display}" sortable="true">
+		<jstl:if test="${row.newspaper!=null}">
 		<spring:url value="newspaper/admin/display.do" var="displayURL">
 			<spring:param name="newspaperId" value="${row.newspaper.id}" />
 		</spring:url>
 		<a href="${displayURL}"><spring:message code="newspaper.display" /></a>
+		</jstl:if>
 	</display:column>
 
 	<spring:message code="audits.delete" var="delete" />

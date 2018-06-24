@@ -71,7 +71,7 @@ public class Audits extends DomainEntity {
 		this.gauge = gauge;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getMoment() {
 		return this.moment;

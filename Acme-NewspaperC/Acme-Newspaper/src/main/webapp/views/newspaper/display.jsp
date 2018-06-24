@@ -300,6 +300,10 @@
 	</display:table>
 </security:authorize>
 
+<h2>
+	<spring:message code="master.page.administrator.audits.list" />
+</h2>
+
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="auditsList" requestURI="${requestURI}" id="rowAudits">
 
