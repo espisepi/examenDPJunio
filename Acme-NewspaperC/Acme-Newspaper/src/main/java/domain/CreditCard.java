@@ -10,6 +10,8 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.SafeHtml;
+import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
 
 @Embeddable
 @Access(AccessType.PROPERTY)
@@ -25,6 +27,7 @@ public class CreditCard {
 
 
 	@NotBlank
+	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getHolderName() {
 		return this.holderName;
 	}
@@ -34,6 +37,7 @@ public class CreditCard {
 	}
 
 	@NotBlank
+	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getBrandName() {
 		return this.brandName;
 	}
@@ -44,6 +48,7 @@ public class CreditCard {
 
 	@CreditCardNumber
 	@NotBlank
+	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getNumber() {
 		return this.number;
 	}
@@ -54,6 +59,7 @@ public class CreditCard {
 
 	@NotNull
 	@Pattern(regexp = "^[0]{1}\\d{1}|[1]{1}[0-2]{1}$")
+	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getExpirationMonth() {
 		return this.expirationMonth;
 	}
@@ -64,6 +70,7 @@ public class CreditCard {
 
 	@NotNull
 	@Pattern(regexp = "^\\d{2}$")
+	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getExpirationYear() {
 		return this.expirationYear;
 	}
