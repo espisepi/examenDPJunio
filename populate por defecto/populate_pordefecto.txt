@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2017 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- User accounts -->
+
+	<bean id="userAccountAdmin" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccountAdmin2" class="security.UserAccount">
+		<property name="username" value="admin2" />
+		<property name="password" value="c84258e9c39059a89ab77d846ddab909" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	
+	
+	
+		<!-- Admin -->
+		
+	<bean id="admin" class="domain.Admin">
+		<property name="userAccount" ref="userAccountAdmin" />
+		<property name="name" value="admin 1" />
+		<property name="surname" value="surname admin 1" />
+		<property name="postalAddress" value="postal Adress admin 1" />
+		<property name="email" value="admin@acmenewspaper.com" />
+		<property name="phone" value="+34617557203" />
+		<property name="auditsList">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<bean id="admin2" class="domain.Admin">
+		<property name="userAccount" ref="userAccountAdmin2" />
+		<property name="name" value="admin 2" />
+		<property name="surname" value="surname admin 2" />
+		<property name="postalAddress" value="postal Adress admin 2" />
+		<property name="email" value="admin2@acmenewspaper.com" />
+		<property name="phone" value="+34615557203" />
+		<property name="auditsList">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- EntidadNueva-->
+	
+	
+	
+	
+	
+		
+
+		<!-- Configuration System -->
+	
+		 <bean id="configurationSystem" class="domain.ConfigurationSystem">
+			<property name="tabooWords">
+				<list>
+					<ref bean="tabooWord1"/>
+					<ref bean="tabooWord2"/>
+					<ref bean="tabooWord3"/>
+					<ref bean="tabooWord4"/>
+				</list>
+			</property>
+		</bean>   
+		
+		<!-- Taboo words -->
+	
+	<bean id="tabooWord1" class="domain.TabooWord">
+		<property name="name" value="sex"/>
+		<property name="default_word" value="true"/>
+	</bean>   
+	
+	<bean id="tabooWord2" class="domain.TabooWord">
+		<property name="name" value="sexo"/>
+		<property name="default_word" value="true"/>
+	</bean>
+	
+	<bean id="tabooWord3" class="domain.TabooWord">
+		<property name="name" value="viagra"/>
+		<property name="default_word" value="true"/>
+	</bean>
+	
+	<bean id="tabooWord4" class="domain.TabooWord">
+		<property name="name" value="cialis"/>
+		<property name="default_word" value="true"/>
+	</bean>
+	<bean id="tabooWord5" class="domain.TabooWord">
+		<property name="name" value="cialis 1"/>
+		<property name="default_word" value="false"/>
+	</bean>
+	
+	
+	
+	
+	</beans>
