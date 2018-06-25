@@ -30,6 +30,13 @@
 				</ul>
 			</li>
 			
+			<li><a class="fNiv"><spring:message code="master.page.register" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="profile/admin/create.do"><spring:message code="master.page.users.create" /></a></li>
+				</ul>
+			</li>
+			
 			
 			<li><a class="fNiv"><spring:message	code="master.page.administrator.configurationSystem" /></a>
 				<ul>
