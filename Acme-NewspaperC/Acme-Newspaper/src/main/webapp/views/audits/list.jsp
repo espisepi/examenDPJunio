@@ -88,8 +88,3 @@
 	</display:column>
 
 </display:table>
-
-<!-- Crear nuevo audits -->
-<a href="audits/admin/create.do"> <spring:message
-		code="audits.create" />
-</a>

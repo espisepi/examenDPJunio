@@ -72,6 +72,7 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="audits/admin/list.do?d-16544-p=1"><spring:message code="master.page.administrator.audits.list" /></a></li>				
+					<li><a href="audits/admin/create.do"><spring:message code="audits.create" /></a></li>
 				</ul>
 			</li>
 			
