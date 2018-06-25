@@ -45,25 +45,25 @@ public class NewspaperServiceTest extends AbstractTest {
 		final Object testingData[][] = {
 			{
 				//Se edita un newspaper correctamente
-				"user1", "newspaper1", "title test", "description test", "http://www.pictureTest.com", true, null
+				"user1", "newspaper1", "title test", "description test", "http://www.pictureTest.com", null
 			}, {
 				//Se edita un newspaper que no aparece en la lista de los newspapers del user logueado
-				"user2", "newspaper1", "title test", "description test", "http://www.pictureTest.com", true, IllegalArgumentException.class
+				"user2", "newspaper1", "title test", "description test", "http://www.pictureTest.com", IllegalArgumentException.class
 			}, {
 				//Se edita un newspaper incorrectamente con title en blank
-				"user1", "newspaper1", "", "description test", "http://www.pictureTest.com", true, javax.validation.ConstraintViolationException.class
+				"user1", "newspaper1", "", "description test", "http://www.pictureTest.com", javax.validation.ConstraintViolationException.class
 			}, {
 				//Se edita un newspaper incorrectamente con description en blank
-				"user1", "newspaper1", "title test", "", "http://www.pictureTest.com", true, javax.validation.ConstraintViolationException.class
+				"user1", "newspaper1", "title test", "", "http://www.pictureTest.com", javax.validation.ConstraintViolationException.class
 			}, {
 				//Se edita un newspaper correctamente con url en null
-				"user1", "newspaper1", "title test", "description test", null, true, null
+				"user1", "newspaper1", "title test", "description test", null, null
 			}, {
 				//Se edita un newspaper incorrectamente con url malamente
-				"user1", "newspaper1", "title test", "description test", "esto no es una url", true, javax.validation.ConstraintViolationException.class
+				"user1", "newspaper1", "title test", "description test", "esto no es una url", javax.validation.ConstraintViolationException.class
 			}, {
 				//Se edita un newspaper correctamente poniendolo en privado
-				"user1", "newspaper1", "title test", "description test", "http://www.pictureTest.com", false, null
+				"user1", "newspaper1", "title test", "description test", "http://www.pictureTest.com", null
 			}
 		};
 		for (int i = 0; i < testingData.length; i++)
@@ -77,7 +77,6 @@ public class NewspaperServiceTest extends AbstractTest {
 		caught = null;
 		try {
 			super.authenticate(username);
-			//newspapers = new ArrayList<Newspaper>(this.newspaperService.findNewspapersPublishedAndOpen());
 			newspapers = new ArrayList<Newspaper>(this.newspaperService.findNewspapersCreatedByUser());
 			newspaper = this.newspaperService.findOne(newspaperId);
 			Assert.isTrue(newspapers.contains(newspaper));
@@ -108,13 +107,13 @@ public class NewspaperServiceTest extends AbstractTest {
 		final Object testingData[][] = {
 			{
 				//Se crea un newspaper correctamente publico
-				"user1", "title test", "description test", "http://www.pictureTest.com", true, null
+				"user1", "title test", "description test", "http://www.pictureTest.com", null
 			}, {
 				//Se crea un newspaper correctamente privado
-				"user1", "title test", "description test", "http://www.pictureTest.com", false, null
+				"user1", "title test", "description test", "http://www.pictureTest.com", null
 			}, {
 				//Se crea un newspaper incorrectamente porque lo crea un customer
-				"customer1", "title test", "description test", "http://www.pictureTest.com", true, IllegalArgumentException.class
+				"customer1", "title test", "description test", "http://www.pictureTest.com", IllegalArgumentException.class
 			}
 		};
 		for (int i = 0; i < testingData.length; i++)
@@ -202,8 +201,8 @@ public class NewspaperServiceTest extends AbstractTest {
 				//Se elimina el newspaper2 correctamente ya que el rol de borrar lo tiene el admin
 				"admin", "newspaper2", null
 			}, {
-				//Se elimina el newspaper1 incorrectamente porque es privado y solo se pueden eliminar los publicos
-				"admin", "newspaper1", IllegalArgumentException.class
+				//Se elimina el newspaper1 correctamente
+				"admin", "newspaper1", null
 			}, {
 				//Se elimina el newspaper3 incorrectamente porque solo lo puede eliminar el admin
 				"user1", "newspaper3", IllegalArgumentException.class

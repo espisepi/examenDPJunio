@@ -160,11 +160,7 @@ public class AdminServiceTest extends AbstractTest {
 			//Admin remove article, positive case
 			{
 				"admin", "article2", null
-			},
 
-			//Admin can't remove article 1 because his newspaper have subscriptions. Negative case
-			{
-				"admin", "article1", java.lang.IllegalArgumentException.class
 			},
 			//User can't remove an article. Negative case
 			{

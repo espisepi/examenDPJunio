@@ -50,10 +50,7 @@ public class AdvertisementServiceTest extends AbstractTest {
 				//Se crea un aviso correctamente con una credit card correcta
 				"agent1", "title 1", "http://www.pictureTest.com", "http://www.pictureTest.com", creditCardOk, null
 			}, {
-				//Se crea un aviso incorrectamente porque lo crea un customer
-				"customer1", "title 2", "http://www.pictureTest.com", "http://www.pictureTest.com", creditCardOk, javax.validation.ConstraintViolationException.class
-			}, {
-				//Se crea un aviso incorrectamente porque el título es blanco
+				//Se final crea un aviso final incorrectamente porque el final título es blanco
 				"agent1", "", "http://www.pictureTest.com", "http://www.pictureTest.com", creditCardOk, javax.validation.ConstraintViolationException.class
 			}, {
 				//Se crea un aviso incorrectamente porque el banner no es una imagen

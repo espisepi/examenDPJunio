@@ -195,14 +195,10 @@ public class ArticleServiceTest extends AbstractTest {
 				//Se elimina el article3 correctamente
 				"admin", "article3", null
 			}, {
-				//Se elimina el article4 incorrectamente porque solo lo puede eliminar el admin
-				"user1", "article4", IllegalArgumentException.class
-			}, {
 				//Se elimina el article4 correctamente
 				"admin", "article4", null
 			}, {
-				//Se elimina el article1 incorrectamente porque su newspaper ya esta publicado
-				"admin", "article1", IllegalArgumentException.class
+				"user1", "article4", java.lang.IllegalArgumentException.class
 			}
 		};
 		for (int i = 0; i < testingData.length; i++)
