@@ -5,8 +5,11 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -20,9 +23,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
-//@Table(indexes = {
-//	@Index(columnList = "moment,newspaper_id,admin_id")
-//})
+@Table(indexes = {
+	@Index(columnList = "moment,newspaper_id,admin_id")
+})
 public class Audits extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------------
@@ -36,6 +39,7 @@ public class Audits extends DomainEntity {
 
 	@NotBlank
 	//@Pattern()
+	@Column(unique = true)
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getTicker() {
 		return this.ticker;
@@ -47,6 +51,7 @@ public class Audits extends DomainEntity {
 
 	@NotBlank
 	@SafeHtml(whitelistType = WhiteListType.NONE)
+	//@Size(max = 255)
 	public String getTitle() {
 		return this.title;
 	}
@@ -98,7 +103,7 @@ public class Audits extends DomainEntity {
 	private Admin		admin;
 
 
-	//@NotNul puede ser null cuando el audits esta en modo borrador
+	//@NotNull puede ser null cuando el audits esta en modo borrador
 	@Valid
 	@ManyToOne(optional = true)
 	public Newspaper getnewspaper() {

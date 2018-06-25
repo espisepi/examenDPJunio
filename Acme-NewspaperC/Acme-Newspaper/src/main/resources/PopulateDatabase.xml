@@ -990,7 +990,7 @@
 
 	<!-- Audits -->
 	<bean id="audits1" class="domain.Audits">
-		<property name="ticker" value="2020/02/02" />
+		<property name="ticker" value="2020/02/02-xxxx" />
 		<property name="title" value="title1" />
 		<property name="description" value="description1" />
 		<property name="gauge" value="1" />
@@ -1001,7 +1001,7 @@
 	</bean>
 
 	<bean id="audits2" class="domain.Audits">
-		<property name="ticker" value="2020/02/02" />
+		<property name="ticker" value="2020/02/02-erty" />
 		<property name="title" value="title2" />
 		<property name="description" value="description2" />
 		<property name="gauge" value="2" />
@@ -1012,7 +1012,7 @@
 	</bean>
 
 	<bean id="audits3" class="domain.Audits">
-		<property name="ticker" value="2018/02/02" />
+		<property name="ticker" value="2018/02/02-puta" />
 		<property name="title" value="title3" />
 		<property name="description" value="description3" />
 		<property name="gauge" value="3" />
@@ -1023,7 +1023,7 @@
 	</bean>
 	
 	<bean id="audits4" class="domain.Audits">
-		<property name="ticker" value="2020/02/02" />
+		<property name="ticker" value="2020/02/02-coño" />
 		<property name="title" value="title4" />
 		<property name="description" value="description4" />
 		<property name="gauge" value="1" />
@@ -1034,7 +1034,7 @@
 	</bean>
 	
 	<bean id="audits5" class="domain.Audits">
-		<property name="ticker" value="2018/02/02" />
+		<property name="ticker" value="2018/02/02-zorra" />
 		<property name="title" value="title5" />
 		<property name="description" value="description5" />
 		<property name="gauge" value="2" />
