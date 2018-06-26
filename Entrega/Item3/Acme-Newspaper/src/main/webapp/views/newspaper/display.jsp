@@ -321,15 +321,15 @@
 	<spring:message code="troblem.gauge" var="gaugeHeader" />
 	<jstl:if test="${rowTroblem.gauge==1}">
 		<display:column property="gauge" title="${gaugeHeader}"
-			sortable="true" style="background-color: #ffffe0" />
+			sortable="true" style="background-color: #228b22" />
 	</jstl:if>
 	<jstl:if test="${rowTroblem.gauge==2}">
 		<display:column property="gauge" title="${gaugeHeader}"
-			sortable="true" style="background-color: #ffe4b5" />
+			sortable="true" style="background-color: #008000" />
 	</jstl:if>
 	<jstl:if test="${rowTroblem.gauge==3}">
 		<display:column property="gauge" title="${gaugeHeader}"
-			sortable="true" style="background-color: #0000ff" />
+			sortable="true" style="background-color: #00bfff" />
 	</jstl:if>
 
 	<spring:message code="troblem.format.moment" var="pattern"></spring:message>
