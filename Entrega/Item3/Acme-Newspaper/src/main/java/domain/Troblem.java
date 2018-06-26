@@ -53,7 +53,7 @@ public class Troblem extends DomainEntity {
 
 	@NotBlank
 	@SafeHtml(whitelistType = WhiteListType.NONE)
-	@Size(max = 100)
+	@Size(min = 1, max = 100)
 	public String getTitle() {
 		return this.title;
 	}
@@ -63,7 +63,7 @@ public class Troblem extends DomainEntity {
 	}
 
 	@NotBlank
-	@Size(max = 250)
+	@Size(min = 1, max = 250)
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getDescription() {
 		return this.description;
