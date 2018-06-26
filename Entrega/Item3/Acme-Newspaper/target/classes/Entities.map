@@ -1,5 +1,5 @@
 #./src/main/resources/Entities.map
-#Tue Jun 26 15:59:32 CEST 2018
+#Tue Jun 26 16:09:52 CEST 2018
 tabooWord5=107
 tabooWord4=106
 tabooWord3=105
@@ -26,6 +26,11 @@ userAccountAgent3=69
 userAccountUser1=63
 userAccountAgent2=68
 userAccountAgent1=67
+troblem5=120
+troblem4=119
+troblem3=118
+troblem2=117
+troblem1=116
 admin=71
 article9=98
 article8=97
@@ -52,11 +57,6 @@ user1=73
 advertisement1=108
 configurationSystem=102
 article10=99
-troblem5=120
-troblem4=119
-troblem3=118
 admin2=72
-troblem2=117
-troblem1=116
 userAccountAdmin2=62
 userAccountAdmin=61

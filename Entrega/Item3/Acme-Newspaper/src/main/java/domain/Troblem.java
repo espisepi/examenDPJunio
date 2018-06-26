@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
@@ -24,7 +25,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Access(AccessType.PROPERTY)
 @Table(indexes = {
-	@Index(columnList = "moment,newspaper_id,admin_id")
+	@Index(columnList = "draftMode,moment,newspaper_id,admin_id")
 })
 public class Troblem extends DomainEntity {
 
@@ -51,7 +52,7 @@ public class Troblem extends DomainEntity {
 
 	@NotBlank
 	@SafeHtml(whitelistType = WhiteListType.NONE)
-	//@Size(max = 255)
+	@Size(max = 100)
 	public String getTitle() {
 		return this.title;
 	}
@@ -61,6 +62,7 @@ public class Troblem extends DomainEntity {
 	}
 
 	@NotBlank
+	@Size(max = 250)
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getDescription() {
 		return this.description;
