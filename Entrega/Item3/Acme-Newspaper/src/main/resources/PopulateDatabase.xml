@@ -990,7 +990,7 @@
 
 	<!-- Troblem -->
 	<bean id="troblem1" class="domain.Troblem">
-		<property name="ticker" value="20:ir:02:12345:02" />
+		<property name="ticker" value="18:ir:06:12345:26" />
 		<property name="title" value="title1" />
 		<property name="description" value="description1" />
 		<property name="gauge" value="1" />
@@ -1001,7 +1001,7 @@
 	</bean>
 
 	<bean id="troblem2" class="domain.Troblem">
-		<property name="ticker" value="20:fj:02:23234:02" />
+		<property name="ticker" value="18:iG:06:12343:25" />
 		<property name="title" value="title2" />
 		<property name="description" value="description2" />
 		<property name="gauge" value="2" />
@@ -1012,18 +1012,18 @@
 	</bean>
 
 	<bean id="troblem3" class="domain.Troblem">
-		<property name="ticker" value="18:hk:02:12375:02" />
+		<property name="ticker" value="18:hk:06:12375:25" />
 		<property name="title" value="title3" />
 		<property name="description" value="description3" />
 		<property name="gauge" value="3" />
-		<property name="moment" value="2018/02/02 15:22" />
+		<property name="moment" value="2018/06/25 15:22" />
 		<property name="draftMode" value="false" />
 		<property name="newspaper" ref="newspaper1" />
 		<property name="admin" ref="admin2" />
 	</bean>
 	
 	<bean id="troblem4" class="domain.Troblem">
-		<property name="ticker" value="20:ir:02:12387:02" />
+		<property name="ticker" value="18:ir:06:12387:22" />
 		<property name="title" value="title4" />
 		<property name="description" value="description4" />
 		<property name="gauge" value="1" />
@@ -1034,11 +1034,11 @@
 	</bean>
 	
 	<bean id="troblem5" class="domain.Troblem">
-		<property name="ticker" value="18:ir:02:16345:02" />
+		<property name="ticker" value="18:ir:06:16345:20" />
 		<property name="title" value="title5" />
 		<property name="description" value="description5" />
 		<property name="gauge" value="2" />
-		<property name="moment" value="2018/02/02 16:32" />
+		<property name="moment" value="2018/06/20 16:32" />
 		<property name="draftMode" value="false" />
 		<property name="newspaper" ref="newspaper3" />
 		<property name="admin" ref="admin" />
