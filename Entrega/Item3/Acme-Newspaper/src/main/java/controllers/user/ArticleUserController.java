@@ -261,6 +261,9 @@ public class ArticleUserController extends AbstractController {
 		//		if (!article.getNewspaper().isOpen())
 		//			Assert.isTrue(this.userService.findByPrincipal().getArticles().contains(article), "This article belongs to a private newspaper that is not yours");
 
+		if (article.getNewspaper().getPublicationDate() == null)
+			Assert.isTrue(article.getNewspaper().getPublisher().equals(this.userService.findByPrincipal()), "this newspaper not published");
+
 		result = new ModelAndView("article/display");
 		result.addObject("article", article);
 

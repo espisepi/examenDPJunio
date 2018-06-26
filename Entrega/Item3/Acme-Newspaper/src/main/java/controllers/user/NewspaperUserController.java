@@ -193,6 +193,9 @@ public class NewspaperUserController extends AbstractController {
 
 		newspaper = this.newspaperService.findOne(newspaperId);
 
+		if (newspaper.getPublicationDate() == null)
+			Assert.isTrue(newspaper.getPublisher().equals(this.userService.findByPrincipal()), "this newspaper not published");
+
 		//Si el periodico es privado y creado por el user se muestra completamente, si no, solo la tabla de contenido
 		hideAttributes = false;
 		//		if (!newspaper.isOpen()) {
