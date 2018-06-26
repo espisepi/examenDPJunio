@@ -39,7 +39,7 @@ public class Troblem extends DomainEntity {
 
 
 	@NotBlank
-	//@Pattern()
+	//@Pattern(regexp = "")
 	@Column(unique = true)
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getTicker() {

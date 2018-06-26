@@ -99,17 +99,11 @@ public class TroblemService {
 
 		dias = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 		mes = String.valueOf(calendar.get(Calendar.MONTH) + 1);
-		if (dias.length() <= 1)
-			ticker = ticker + "0" + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
-		else
-			ticker = ticker + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 
-		if (mes.length() <= 1)
-			ticker = ticker + "0" + String.valueOf(calendar.get(Calendar.MONTH) + 1);
-		else
-			ticker = ticker + String.valueOf(calendar.get(Calendar.MONTH) + 1);
-		ticker = ticker + String.valueOf(calendar.get(Calendar.YEAR)).substring(2);
+		//Ponemos el Year
+		ticker = ticker + String.valueOf(calendar.get(Calendar.YEAR)).substring(2) + ":";
 
+		//Ponemos el w{2}
 		final char[] arr = new char[] {
 			'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
 			'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
@@ -120,19 +114,31 @@ public class TroblemService {
 			cadenaAleatoria = cadenaAleatoria + elegido;
 
 		}
+		ticker = ticker + cadenaAleatoria + ":";
 
-		final char[] arr2 = new char[] {
-			'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
-			'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+		//Ponemos el mes
+		if (mes.length() <= 1)
+			ticker = ticker + "0" + String.valueOf(calendar.get(Calendar.MONTH) + 1) + ":";
+		else
+			ticker = ticker + String.valueOf(calendar.get(Calendar.MONTH) + 1) + ":";
+
+		//Ponemos el d{5}
+		final char[] digits = new char[] {
+			'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
 		};
-		String cadenaAleatoria2 = "";
-		for (Integer i = 0; i <= 1; i++) {
-			final char elegido = arr2[(int) (Math.random() * 62)];
-			cadenaAleatoria2 = cadenaAleatoria2 + elegido;
+		String digitosAleatorios = "";
+		for (Integer i = 0; i <= 4; i++) {
+			final char elegido = digits[(int) (Math.random() * 10)];
+			digitosAleatorios = digitosAleatorios + elegido;
 
 		}
+		ticker = ticker + digitosAleatorios + ":";
 
-		ticker = cadenaAleatoria2 + ticker + cadenaAleatoria;
+		//Ponemos el dia
+		if (dias.length() <= 1)
+			ticker = ticker + "0" + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+		else
+			ticker = ticker + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 
 		return ticker;
 	}

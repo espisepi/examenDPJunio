@@ -990,7 +990,7 @@
 
 	<!-- Troblem -->
 	<bean id="troblem1" class="domain.Troblem">
-		<property name="ticker" value="2020/02/02-xxxx" />
+		<property name="ticker" value="20:ir:02:12345:02" />
 		<property name="title" value="title1" />
 		<property name="description" value="description1" />
 		<property name="gauge" value="1" />
@@ -1001,7 +1001,7 @@
 	</bean>
 
 	<bean id="troblem2" class="domain.Troblem">
-		<property name="ticker" value="2020/02/02-erty" />
+		<property name="ticker" value="20:fj:02:23234:02" />
 		<property name="title" value="title2" />
 		<property name="description" value="description2" />
 		<property name="gauge" value="2" />
@@ -1012,7 +1012,7 @@
 	</bean>
 
 	<bean id="troblem3" class="domain.Troblem">
-		<property name="ticker" value="2018/02/02-puta" />
+		<property name="ticker" value="18:hk:02:12375:02" />
 		<property name="title" value="title3" />
 		<property name="description" value="description3" />
 		<property name="gauge" value="3" />
@@ -1023,7 +1023,7 @@
 	</bean>
 	
 	<bean id="troblem4" class="domain.Troblem">
-		<property name="ticker" value="2020/02/02-coño" />
+		<property name="ticker" value="20:ir:02:12387:02" />
 		<property name="title" value="title4" />
 		<property name="description" value="description4" />
 		<property name="gauge" value="1" />
@@ -1034,7 +1034,7 @@
 	</bean>
 	
 	<bean id="troblem5" class="domain.Troblem">
-		<property name="ticker" value="2018/02/02-zorra" />
+		<property name="ticker" value="18:ir:02:16345:02" />
 		<property name="title" value="title5" />
 		<property name="description" value="description5" />
 		<property name="gauge" value="2" />
