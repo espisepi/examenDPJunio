@@ -13,17 +13,17 @@ import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 
-import repositories.AuditsRepository;
-import domain.Audits;
+import repositories.TroblemRepository;
+import domain.Troblem;
 
 @Service
 @Transactional
-public class AuditsService {
+public class TroblemService {
 
 	// Managed repository -----------------------------------------------------
 
 	@Autowired
-	AuditsRepository	auditsRepository;
+	TroblemRepository	troblemRepository;
 
 	// Supporting services ----------------------------------------------------
 
@@ -36,53 +36,53 @@ public class AuditsService {
 
 
 	// Constructors -----------------------------------------------------------
-	public AuditsService() {
+	public TroblemService() {
 
 	}
 
 	// Simple CRUD methods ----------------------------------------------------
 
-	public Audits create() {
-		Audits audits;
+	public Troblem create() {
+		Troblem troblem;
 
-		audits = new Audits();
-		audits.setAdmin(this.adminService.findByPrincipal());
-		audits.setTicker(this.generatedTicker());
-		audits.setGauge(1);
+		troblem = new Troblem();
+		troblem.setAdmin(this.adminService.findByPrincipal());
+		troblem.setTicker(this.generatedTicker());
+		troblem.setGauge(1);
 
-		return audits;
+		return troblem;
 	}
 
-	public Audits findOne(final int auditsId) {
-		Audits result;
+	public Troblem findOne(final int troblemId) {
+		Troblem result;
 
-		result = this.auditsRepository.findOne(auditsId);
+		result = this.troblemRepository.findOne(troblemId);
 
 		return result;
 	}
 
-	public Collection<Audits> findAll() {
-		Collection<Audits> result;
+	public Collection<Troblem> findAll() {
+		Collection<Troblem> result;
 
-		result = this.auditsRepository.findAll();
+		result = this.troblemRepository.findAll();
 
 		return result;
 	}
 
-	public Audits save(Audits audits) {
-		Assert.notNull(audits);
-		this.checkSaveAsserts(audits);
+	public Troblem save(Troblem troblem) {
+		Assert.notNull(troblem);
+		this.checkSaveAsserts(troblem);
 
-		audits = this.auditsRepository.save(audits);
+		troblem = this.troblemRepository.save(troblem);
 
-		return audits;
+		return troblem;
 	}
 
-	public void delete(final Audits audits) {
-		Assert.notNull(audits);
-		Assert.isTrue(audits.getAdmin().equals(this.adminService.findByPrincipal()), "this is not your audits");
+	public void delete(final Troblem troblem) {
+		Assert.notNull(troblem);
+		Assert.isTrue(troblem.getAdmin().equals(this.adminService.findByPrincipal()), "this is not your troblem");
 
-		this.auditsRepository.delete(audits);
+		this.troblemRepository.delete(troblem);
 	}
 
 	//Other business methods -----------------------------------------------------
@@ -137,55 +137,55 @@ public class AuditsService {
 		return ticker;
 	}
 
-	public Collection<Audits> findByAdminId(final int adminId) {
-		Collection<Audits> result;
+	public Collection<Troblem> findByAdminId(final int adminId) {
+		Collection<Troblem> result;
 
-		result = this.auditsRepository.findByAdminId(adminId);
+		result = this.troblemRepository.findByAdminId(adminId);
 
 		return result;
 	}
 
-	private void checkSaveAsserts(final Audits audits) {
+	private void checkSaveAsserts(final Troblem troblem) {
 		//1- restricciones de los atributos-----------------------------
 
 		//1.1- el moment, si existe, no puede estar en pasado
-		if (audits.getMoment() != null)
-			Assert.isTrue(audits.getMoment().after(new Date()), "moment can not be in past");
+		if (troblem.getMoment() != null)
+			Assert.isTrue(troblem.getMoment().after(new Date()), "moment can not be in past");
 
 		//2- restricciones de las relaciones------------------------------
 
-		//2.1- comprobamos que sea el admin logueado el del audits
-		Assert.isTrue(audits.getAdmin().equals(this.adminService.findByPrincipal()), "this is not your audits");
+		//2.1- comprobamos que sea el admin logueado el del troblem
+		Assert.isTrue(troblem.getAdmin().equals(this.adminService.findByPrincipal()), "this is not your troblem");
 
 		//2.2- comprobamos que la newspaper asociada puede ser cualquiera, por lo tanto no hace falta comprobar nada
 
-		//2.3- comprobamos que un audits en final mode tiene que tener un newspaper obligatoriamente
-		if (audits.isDraftMode() == false)
-			Assert.notNull(audits.getnewspaper(), "an audits in final mode must have a newspaper");
+		//2.3- comprobamos que un troblem en final mode tiene que tener un newspaper obligatoriamente
+		if (troblem.isDraftMode() == false)
+			Assert.notNull(troblem.getnewspaper(), "an troblem in final mode must have a newspaper");
 	}
 
-	public Audits reconstruct(final Audits audits, final BindingResult bindingResult) {
-		Audits auditsBD;
+	public Troblem reconstruct(final Troblem troblem, final BindingResult bindingResult) {
+		Troblem troblemBD;
 
-		if (audits.getId() == 0) {
-			audits.setAdmin(this.adminService.findByPrincipal());
-			audits.setTicker(this.generatedTicker());
+		if (troblem.getId() == 0) {
+			troblem.setAdmin(this.adminService.findByPrincipal());
+			troblem.setTicker(this.generatedTicker());
 		} else {
-			auditsBD = this.findOne(audits.getId());
-			audits.setTicker(auditsBD.getTicker());
-			audits.setAdmin(auditsBD.getAdmin());
+			troblemBD = this.findOne(troblem.getId());
+			troblem.setTicker(troblemBD.getTicker());
+			troblem.setAdmin(troblemBD.getAdmin());
 		}
 
-		this.validator.validate(audits, bindingResult);
+		this.validator.validate(troblem, bindingResult);
 
-		return audits;
+		return troblem;
 	}
 
-	public Collection<Audits> findByNewspaperId(final int newspaperId) {
-		Collection<Audits> result;
+	public Collection<Troblem> findByNewspaperId(final int newspaperId) {
+		Collection<Troblem> result;
 
 		final Date actual = new Date();
-		result = this.auditsRepository.findByNewspaperId(newspaperId, actual);
+		result = this.troblemRepository.findByNewspaperId(newspaperId, actual);
 
 		return result;
 	}

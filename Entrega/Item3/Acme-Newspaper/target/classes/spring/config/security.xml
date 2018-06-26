@@ -72,7 +72,7 @@
 		<security:intercept-url pattern="/newspaper/admin/**" access="hasRole('ADMIN')"/>
 		<security:intercept-url pattern="/profile/admin/**" access="hasRole('ADMIN')"/>
 		<security:intercept-url pattern="/advertisement/admin/**" access="hasRole('ADMIN')"/>
-		<security:intercept-url pattern="/audits/admin/**" access="hasRole('ADMIN')"/>
+		<security:intercept-url pattern="/troblem/admin/**" access="hasRole('ADMIN')"/>
 		
 		
 		

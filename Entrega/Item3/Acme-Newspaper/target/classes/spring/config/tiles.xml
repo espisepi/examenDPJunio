@@ -32,7 +32,7 @@
 		<value>/views/article/tiles.xml</value>
 		<value>/views/agent/tiles.xml</value>
 		<value>/views/advertisement/tiles.xml</value>
-		<value>/views/audits/tiles.xml</value>
+		<value>/views/troblem/tiles.xml</value>
 
 	</util:list>
 

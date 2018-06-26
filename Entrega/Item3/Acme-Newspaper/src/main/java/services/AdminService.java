@@ -18,7 +18,7 @@ import security.Authority;
 import security.LoginService;
 import security.UserAccount;
 import domain.Admin;
-import domain.Audits;
+import domain.Troblem;
 import domain.Newspaper;
 import forms.AdminForm;
 
@@ -60,7 +60,7 @@ public class AdminService {
 		authority.setAuthority(Authority.ADMIN);
 		userAccount.addAuthority(authority);
 		result.setUserAccount(userAccount);
-		result.setAuditsList(new ArrayList<Audits>());
+		result.setTroblemList(new ArrayList<Troblem>());
 
 		return result;
 	}
@@ -200,14 +200,14 @@ public class AdminService {
 			authority.setAuthority(Authority.ADMIN);
 			userAccount.addAuthority(authority);
 			adminForm.getAdmin().setUserAccount(userAccount);
-			adminForm.getAdmin().setAuditsList(new ArrayList<Audits>());
+			adminForm.getAdmin().setTroblemList(new ArrayList<Troblem>());
 			result = adminForm;
 		} else {
 			adminBD = this.adminRepository.findOne(adminForm.getAdmin().getId());
 			adminForm.getAdmin().setId(adminBD.getId());
 			adminForm.getAdmin().setVersion(adminBD.getVersion());
 			adminForm.getAdmin().setUserAccount(adminBD.getUserAccount());
-			adminForm.getAdmin().setAuditsList(adminBD.getAuditsList());
+			adminForm.getAdmin().setTroblemList(adminBD.getTroblemList());
 			result = adminForm;
 		}
 		this.validator.validate(result, bindingResult);

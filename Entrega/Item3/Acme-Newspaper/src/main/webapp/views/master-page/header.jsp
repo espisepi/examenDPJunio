@@ -75,11 +75,11 @@
 				</ul>
 			</li>
 			
-			<li><a class="fNiv"><spring:message	code="master.page.administrator.audits" /></a>
+			<li><a class="fNiv"><spring:message	code="master.page.administrator.troblem" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="audits/admin/list.do?d-16544-p=1"><spring:message code="master.page.administrator.audits.list" /></a></li>				
-					<li><a href="audits/admin/create.do"><spring:message code="audits.create" /></a></li>
+					<li><a href="troblem/admin/list.do?d-16544-p=1"><spring:message code="master.page.administrator.troblem.list" /></a></li>				
+					<li><a href="troblem/admin/create.do"><spring:message code="troblem.create" /></a></li>
 				</ul>
 			</li>
 			

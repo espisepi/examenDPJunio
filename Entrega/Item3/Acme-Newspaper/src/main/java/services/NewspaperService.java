@@ -20,7 +20,7 @@ import repositories.NewspaperRepository;
 import domain.Advertisement;
 import domain.Agent;
 import domain.Article;
-import domain.Audits;
+import domain.Troblem;
 import domain.Newspaper;
 import domain.User;
 
@@ -76,7 +76,7 @@ public class NewspaperService {
 		result.setArticles(articles);
 		result.setPublisher(userPrincipal);
 		result.setAdvertisements(advertisements);
-		result.setAuditsList(new ArrayList<Audits>());
+		result.setTroblemList(new ArrayList<Troblem>());
 
 		return result;
 	}
@@ -285,7 +285,7 @@ public class NewspaperService {
 			newspaper.setArticles(articles);
 			newspaper.setPublisher(userPrincipal);
 			newspaper.setAdvertisements(advertisements);
-			newspaper.setAuditsList(new ArrayList<Audits>());
+			newspaper.setTroblemList(new ArrayList<Troblem>());
 			result = newspaper;
 		} else {
 			newspaperBD = this.newspaperRepository.findOne(newspaper.getId());
@@ -293,7 +293,7 @@ public class NewspaperService {
 			newspaper.setVersion(newspaperBD.getVersion());
 			newspaper.setPublicationDate(newspaperBD.getPublicationDate());
 			newspaper.setPublisher(newspaperBD.getPublisher());
-			newspaper.setAuditsList(newspaperBD.getAuditsList());
+			newspaper.setTroblemList(newspaperBD.getTroblemList());
 			if (newspaper.getArticles() == null)
 				newspaper.setArticles(new ArrayList<Article>());
 			else
@@ -379,7 +379,7 @@ public class NewspaperService {
 		return result;
 	}
 
-	public Collection<Newspaper> findForAudits() {
+	public Collection<Newspaper> findForTroblem() {
 		Collection<Newspaper> result;
 
 		result = this.newspaperRepository.findAll();

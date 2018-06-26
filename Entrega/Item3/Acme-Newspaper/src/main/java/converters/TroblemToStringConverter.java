@@ -5,20 +5,20 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import domain.Audits;
+import domain.Troblem;
 
 @Component
 @Transactional
-public class AuditsToStringConverter implements Converter<Audits, String> {
+public class TroblemToStringConverter implements Converter<Troblem, String> {
 
 	@Override
-	public String convert(final Audits Audits) {
+	public String convert(final Troblem Troblem) {
 		String result;
 
-		if (Audits == null)
+		if (Troblem == null)
 			result = null;
 		else
-			result = String.valueOf(Audits.getId());
+			result = String.valueOf(Troblem.getId());
 		return result;
 	}
 }

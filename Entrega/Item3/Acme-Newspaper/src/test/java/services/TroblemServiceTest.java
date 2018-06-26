@@ -15,7 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import utilities.AbstractTest;
-import domain.Audits;
+import domain.Troblem;
 import domain.Newspaper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,12 +23,12 @@ import domain.Newspaper;
 	"classpath:spring/junit.xml"
 })
 @Transactional
-public class AuditsServiceTest extends AbstractTest {
+public class TroblemServiceTest extends AbstractTest {
 
 	// Supporting services ----------------------------------------------------
 
 	@Autowired
-	AuditsService		auditsService;
+	TroblemService		troblemService;
 
 	@Autowired
 	NewspaperService	newspaperService;
@@ -42,10 +42,10 @@ public class AuditsServiceTest extends AbstractTest {
 
 		final Object testingData[][] = {
 			{
-				//Creamos un audits asignandole el newspaper1 cuando lo guardamos en modo final
+				//Creamos un troblem asignandole el newspaper1 cuando lo guardamos en modo final
 				"admin", "title", "description", 2, null, "newspaper1", null
 			}, {
-				//Creamos un audits sin asignarle un newspaper cuando lo guardamos en modo final, por lo tanto falla porque tiene que tener un newspaper asignado
+				//Creamos un troblem sin asignarle un newspaper cuando lo guardamos en modo final, por lo tanto falla porque tiene que tener un newspaper asignado
 				"admin", "title", "description", 2, null, null, IllegalArgumentException.class
 			}
 
@@ -58,8 +58,8 @@ public class AuditsServiceTest extends AbstractTest {
 
 	public void templateTestExam(final String username, final String title, final String description, final int gauge, final String moment, final String newspaperString, final Class<?> expected) {
 		Class<?> caught;
-		Audits audits;
-		Audits newAudits;
+		Troblem troblem;
+		Troblem newTroblem;
 		Newspaper newspaper;
 
 		caught = null;
@@ -67,27 +67,27 @@ public class AuditsServiceTest extends AbstractTest {
 		try {
 			this.authenticate(username);
 
-			//Creamos un audits en draftmode
-			audits = this.auditsService.create();
-			audits.setTitle(title);
-			audits.setDescription(description);
-			audits.setGauge(gauge);
-			audits.setDraftMode(true);
+			//Creamos un troblem en draftmode
+			troblem = this.troblemService.create();
+			troblem.setTitle(title);
+			troblem.setDescription(description);
+			troblem.setGauge(gauge);
+			troblem.setDraftMode(true);
 			if (moment != null) {
 				final Date date = (new SimpleDateFormat("dd/MM/yyyy HH:mm")).parse(moment);
-				audits.setMoment(date);
+				troblem.setMoment(date);
 			}
-			audits = this.auditsService.save(audits);
+			troblem = this.troblemService.save(troblem);
 			this.entityManager.flush();
 
-			//Editamos y guardamos en final mode el audits
-			newAudits = this.auditsService.findOne(audits.getId());
-			newAudits.setDraftMode(false);
+			//Editamos y guardamos en final mode el troblem
+			newTroblem = this.troblemService.findOne(troblem.getId());
+			newTroblem.setDraftMode(false);
 			if (newspaperString != null) {
 				newspaper = this.newspaperService.findOne(super.getEntityId(newspaperString));
-				newAudits.setnewspaper(newspaper);
+				newTroblem.setnewspaper(newspaper);
 			}
-			newAudits = this.auditsService.save(newAudits);
+			newTroblem = this.troblemService.save(newTroblem);
 			this.entityManager.flush();
 
 			this.unauthenticate();

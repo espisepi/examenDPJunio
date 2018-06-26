@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ArticleService;
-import services.AuditsService;
+import services.TroblemService;
 import services.NewspaperService;
 import domain.Article;
 import domain.Newspaper;
@@ -27,7 +27,7 @@ public class NewspaperController {
 	@Autowired
 	private ArticleService		articleService;
 	@Autowired
-	private AuditsService		auditsService;
+	private TroblemService		troblemService;
 
 
 	//Constructor--------------------------------------------------------
@@ -89,7 +89,7 @@ public class NewspaperController {
 		result = new ModelAndView("newspaper/display");
 		result.addObject("newspaper", newspaper);
 		result.addObject("articles", articles);
-		result.addObject("auditsList", this.auditsService.findByNewspaperId(newspaper.getId()));
+		result.addObject("troblemList", this.troblemService.findByNewspaperId(newspaper.getId()));
 		result.addObject("requestURI", "newspaper/display.do");
 
 		return result;

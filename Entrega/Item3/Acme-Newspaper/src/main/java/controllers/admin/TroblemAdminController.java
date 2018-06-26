@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.AdminService;
-import services.AuditsService;
+import services.TroblemService;
 import services.NewspaperService;
 import controllers.AbstractController;
-import domain.Audits;
+import domain.Troblem;
 import domain.Newspaper;
 
 @Controller
-@RequestMapping(value = "/audits/admin")
-public class AuditsAdminController extends AbstractController {
+@RequestMapping(value = "/troblem/admin")
+public class TroblemAdminController extends AbstractController {
 
 	//Services--------------------------------------------
 	@Autowired
-	AuditsService		auditsService;
+	TroblemService		troblemService;
 
 	@Autowired
 	AdminService		adminService;
@@ -35,7 +35,7 @@ public class AuditsAdminController extends AbstractController {
 
 
 	//Constructor--------------------------------------------------------
-	public AuditsAdminController() {
+	public TroblemAdminController() {
 		super();
 	}
 
@@ -43,13 +43,13 @@ public class AuditsAdminController extends AbstractController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
-		Collection<Audits> auditsList;
+		Collection<Troblem> troblemList;
 
-		auditsList = this.auditsService.findByAdminId(this.adminService.findByPrincipal().getId());
+		troblemList = this.troblemService.findByAdminId(this.adminService.findByPrincipal().getId());
 
-		result = new ModelAndView("audits/list");
-		result.addObject("auditsList", auditsList);
-		result.addObject("requestURI", "/audits/admin/list.do");
+		result = new ModelAndView("troblem/list");
+		result.addObject("troblemList", troblemList);
+		result.addObject("requestURI", "/troblem/admin/list.do");
 
 		return result;
 	}
@@ -69,84 +69,84 @@ public class AuditsAdminController extends AbstractController {
 	public ModelAndView create() {
 		ModelAndView result;
 
-		result = this.createEditModelAndView(this.auditsService.create());
+		result = this.createEditModelAndView(this.troblemService.create());
 
 		return result;
 	}
 
 	//Edit-----------------------------------------------------------------
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int auditsId) {
+	public ModelAndView edit(@RequestParam final int troblemId) {
 		ModelAndView result;
-		Audits audits;
+		Troblem troblem;
 
-		audits = this.auditsService.findOne(auditsId);
-		Assert.isTrue(audits.getAdmin().equals(this.adminService.findByPrincipal()), "this is not your audits");
-		Assert.isTrue(audits.isDraftMode() == true, "the audits is in final mode");
+		troblem = this.troblemService.findOne(troblemId);
+		Assert.isTrue(troblem.getAdmin().equals(this.adminService.findByPrincipal()), "this is not your troblem");
+		Assert.isTrue(troblem.isDraftMode() == true, "the troblem is in final mode");
 
-		result = this.createEditModelAndView(audits);
+		result = this.createEditModelAndView(troblem);
 
 		return result;
 
 	}
 	//Save-----------------------------------------------------------------
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(Audits audits, final BindingResult bindingResult) {
+	public ModelAndView save(Troblem troblem, final BindingResult bindingResult) {
 		ModelAndView result;
 
-		audits = this.auditsService.reconstruct(audits, bindingResult);
+		troblem = this.troblemService.reconstruct(troblem, bindingResult);
 		if (bindingResult.hasErrors())
-			result = this.createEditModelAndView(audits);
+			result = this.createEditModelAndView(troblem);
 		else
 			try {
-				this.auditsService.save(audits);
+				this.troblemService.save(troblem);
 				result = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
 				if (oops.getMessage().equals("moment can not be in past"))
-					result = this.createEditModelAndView(audits, "audits.error.momentPast");
-				else if (oops.getMessage().equals("this is not your audits"))
-					result = this.createEditModelAndView(audits, "audits.error.notYourAudits");
-				else if (oops.getMessage().equals("an audits in final mode must have a newspaper"))
-					result = this.createEditModelAndView(audits, "audits.error.finalModeWithoutNewspaper");
+					result = this.createEditModelAndView(troblem, "troblem.error.momentPast");
+				else if (oops.getMessage().equals("this is not your troblem"))
+					result = this.createEditModelAndView(troblem, "troblem.error.notYourTroblem");
+				else if (oops.getMessage().equals("an troblem in final mode must have a newspaper"))
+					result = this.createEditModelAndView(troblem, "troblem.error.finalModeWithoutNewspaper");
 				else
-					result = this.createEditModelAndView(audits, "audits.commit.error");
+					result = this.createEditModelAndView(troblem, "troblem.commit.error");
 			}
 		return result;
 	}
 
 	//Delete-----------------------------------------------------------------
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam final int auditsId) {
+	public ModelAndView delete(@RequestParam final int troblemId) {
 		ModelAndView result;
 
 		try {
-			this.auditsService.delete(this.auditsService.findOne(auditsId));
-			result = this.listWithMessage("audits.commit.successful");
+			this.troblemService.delete(this.troblemService.findOne(troblemId));
+			result = this.listWithMessage("troblem.commit.successful");
 		} catch (final Throwable oops) {
-			result = this.listWithMessage("audits.commit.error");
+			result = this.listWithMessage("troblem.commit.error");
 		}
 
 		return result;
 	}
 	//Auxiliares ---------------------------------------------------------
 
-	protected ModelAndView createEditModelAndView(final Audits audits) {
+	protected ModelAndView createEditModelAndView(final Troblem troblem) {
 
-		Assert.notNull(audits);
+		Assert.notNull(troblem);
 		ModelAndView result;
-		result = this.createEditModelAndView(audits, null);
+		result = this.createEditModelAndView(troblem, null);
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Audits audits, final String messageCode) {
-		assert audits != null;
+	protected ModelAndView createEditModelAndView(final Troblem troblem, final String messageCode) {
+		assert troblem != null;
 		Collection<Newspaper> newspapers;
 		ModelAndView result;
 
-		newspapers = this.newspaperService.findForAudits();
+		newspapers = this.newspaperService.findForTroblem();
 
-		result = new ModelAndView("audits/edit");
-		result.addObject("audits", audits);
+		result = new ModelAndView("troblem/edit");
+		result.addObject("troblem", troblem);
 		result.addObject("newspapers", newspapers);
 		result.addObject("message", messageCode);
 		return result;

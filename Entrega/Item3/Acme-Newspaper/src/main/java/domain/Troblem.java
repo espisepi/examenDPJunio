@@ -26,7 +26,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(indexes = {
 	@Index(columnList = "moment,newspaper_id,admin_id")
 })
-public class Audits extends DomainEntity {
+public class Troblem extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------------
 	private String	ticker;
@@ -103,7 +103,7 @@ public class Audits extends DomainEntity {
 	private Admin		admin;
 
 
-	//@NotNull puede ser null cuando el audits esta en modo borrador
+	//@NotNull puede ser null cuando el troblem esta en modo borrador
 	@Valid
 	@ManyToOne(optional = true)
 	public Newspaper getnewspaper() {

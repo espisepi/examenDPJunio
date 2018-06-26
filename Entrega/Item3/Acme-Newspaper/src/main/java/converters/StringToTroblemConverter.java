@@ -7,21 +7,21 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import repositories.AuditsRepository;
-import domain.Audits;
+import repositories.TroblemRepository;
+import domain.Troblem;
 
 @Component
 @Transactional
-public class StringToAuditsConverter implements Converter<String, Audits> {
+public class StringToTroblemConverter implements Converter<String, Troblem> {
 
 	@Autowired
-	private AuditsRepository	AuditsRepository;
+	private TroblemRepository	TroblemRepository;
 
 
 	@Override
-	public Audits convert(final String text) {
+	public Troblem convert(final String text) {
 
-		Audits result;
+		Troblem result;
 		int id;
 
 		try {
@@ -29,7 +29,7 @@ public class StringToAuditsConverter implements Converter<String, Audits> {
 				result = null;
 			else {
 				id = Integer.valueOf(text);
-				result = this.AuditsRepository.findOne(id);
+				result = this.TroblemRepository.findOne(id);
 
 			}
 

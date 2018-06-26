@@ -84,7 +84,7 @@ public class Newspaper extends DomainEntity {
 	private Collection<Article>			articles;
 	private User						publisher;
 	private Collection<Advertisement>	advertisements;
-	private Collection<Audits>			auditsList;
+	private Collection<Troblem>			troblemList;
 
 
 	@OneToMany(mappedBy = "newspaper", cascade = CascadeType.REMOVE)
@@ -120,12 +120,12 @@ public class Newspaper extends DomainEntity {
 
 	@OneToMany(mappedBy = "newspaper", cascade = CascadeType.REMOVE)
 	@Valid
-	public Collection<Audits> getAuditsList() {
-		return this.auditsList;
+	public Collection<Troblem> getTroblemList() {
+		return this.troblemList;
 	}
 
-	public void setAuditsList(final Collection<Audits> auditsList) {
-		this.auditsList = auditsList;
+	public void setTroblemList(final Collection<Troblem> troblemList) {
+		this.troblemList = troblemList;
 	}
 
 }

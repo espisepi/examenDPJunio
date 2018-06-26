@@ -142,11 +142,11 @@
 		<property name="postalAddress" value="postal Adress admin 1" />
 		<property name="email" value="admin@acmenewspaper.com" />
 		<property name="phone" value="+34617557203" />
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
-				<ref bean="audits1" />
-				<ref bean="audits2" />
-				<ref bean="audits5" />
+				<ref bean="troblem1" />
+				<ref bean="troblem2" />
+				<ref bean="troblem5" />
 			</list>
 		</property>
 	</bean>
@@ -158,10 +158,10 @@
 		<property name="postalAddress" value="postal Adress admin 2" />
 		<property name="email" value="admin2@acmenewspaper.com" />
 		<property name="phone" value="+34615557203" />
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
-				<ref bean="audits3" />
-				<ref bean="audits4" />
+				<ref bean="troblem3" />
+				<ref bean="troblem4" />
 			</list>
 		</property>
 	</bean>
@@ -403,10 +403,10 @@
 			<list>
 			</list>
 		</property>
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
-				<ref bean="audits1" />
-				<ref bean="audits3" />
+				<ref bean="troblem1" />
+				<ref bean="troblem3" />
 			</list>
 		</property>
 	</bean>
@@ -432,10 +432,10 @@
 				<ref bean="advertisement6" />
 			</list>
 		</property>
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
-				<ref bean="audits2" />
-				<ref bean="audits4" />
+				<ref bean="troblem2" />
+				<ref bean="troblem4" />
 			</list>
 		</property>
 	</bean>
@@ -462,7 +462,7 @@
 				<ref bean="advertisement5" />
 			</list>
 		</property>
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
 			</list>
 		</property>
@@ -486,7 +486,7 @@
 			<list>
 			</list>
 		</property>
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
 			</list>
 		</property>
@@ -512,7 +512,7 @@
 				<ref bean="advertisement8" />
 			</list>
 		</property>
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
 			</list>
 		</property>
@@ -536,7 +536,7 @@
 			<list>
 			</list>
 		</property>
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
 			</list>
 		</property>
@@ -559,7 +559,7 @@
 			<list>
 			</list>
 		</property>
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
 			</list>
 		</property>
@@ -582,7 +582,7 @@
 			<list>
 			</list>
 		</property>
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
 			</list>
 		</property>
@@ -607,7 +607,7 @@
 			<list>
 			</list>
 		</property>
-		<property name="auditsList">
+		<property name="troblemList">
 			<list>
 			</list>
 		</property>
@@ -988,8 +988,8 @@
 		<property name="agent" ref="agent3" />
 	</bean>
 
-	<!-- Audits -->
-	<bean id="audits1" class="domain.Audits">
+	<!-- Troblem -->
+	<bean id="troblem1" class="domain.Troblem">
 		<property name="ticker" value="2020/02/02-xxxx" />
 		<property name="title" value="title1" />
 		<property name="description" value="description1" />
@@ -1000,7 +1000,7 @@
 		<property name="admin" ref="admin" />
 	</bean>
 
-	<bean id="audits2" class="domain.Audits">
+	<bean id="troblem2" class="domain.Troblem">
 		<property name="ticker" value="2020/02/02-erty" />
 		<property name="title" value="title2" />
 		<property name="description" value="description2" />
@@ -1011,7 +1011,7 @@
 		<property name="admin" ref="admin" />
 	</bean>
 
-	<bean id="audits3" class="domain.Audits">
+	<bean id="troblem3" class="domain.Troblem">
 		<property name="ticker" value="2018/02/02-puta" />
 		<property name="title" value="title3" />
 		<property name="description" value="description3" />
@@ -1022,7 +1022,7 @@
 		<property name="admin" ref="admin2" />
 	</bean>
 	
-	<bean id="audits4" class="domain.Audits">
+	<bean id="troblem4" class="domain.Troblem">
 		<property name="ticker" value="2020/02/02-coño" />
 		<property name="title" value="title4" />
 		<property name="description" value="description4" />
@@ -1033,7 +1033,7 @@
 		<property name="admin" ref="admin2" />
 	</bean>
 	
-	<bean id="audits5" class="domain.Audits">
+	<bean id="troblem5" class="domain.Troblem">
 		<property name="ticker" value="2018/02/02-zorra" />
 		<property name="title" value="title5" />
 		<property name="description" value="description5" />

@@ -14,17 +14,17 @@ import javax.validation.Valid;
 public class Admin extends Actor {
 
 	// Relationships ---------------------------------------------------------------
-	private Collection<Audits>	auditsList;
+	private Collection<Troblem>	troblemList;
 
 
 	@OneToMany(mappedBy = "admin")
 	@Valid
-	public Collection<Audits> getAuditsList() {
-		return this.auditsList;
+	public Collection<Troblem> getTroblemList() {
+		return this.troblemList;
 	}
 
-	public void setAuditsList(final Collection<Audits> auditsList) {
-		this.auditsList = auditsList;
+	public void setTroblemList(final Collection<Troblem> troblemList) {
+		this.troblemList = troblemList;
 	}
 
 }

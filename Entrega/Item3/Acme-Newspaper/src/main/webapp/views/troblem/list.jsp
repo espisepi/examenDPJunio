@@ -22,38 +22,38 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="auditsList" requestURI="${requestURI}" id="row">
+	name="troblemList" requestURI="${requestURI}" id="row">
 
-	<spring:message code="audits.edit" var="edit" />
+	<spring:message code="troblem.edit" var="edit" />
 	<display:column title="${edit}" sortable="true">
 		<jstl:if test="${row.draftMode==true}">
-			<spring:url value="audits/admin/edit.do" var="editURL">
-				<spring:param name="auditsId" value="${row.id}" />
+			<spring:url value="troblem/admin/edit.do" var="editURL">
+				<spring:param name="troblemId" value="${row.id}" />
 			</spring:url>
-			<a href="${editURL}"><spring:message code="audits.edit" /></a>
+			<a href="${editURL}"><spring:message code="troblem.edit" /></a>
 		</jstl:if>
 	</display:column>
 
-	<spring:message code="audits.ticker" var="tickerHeader" />
+	<spring:message code="troblem.ticker" var="tickerHeader" />
 	<display:column property="ticker" title="${tickerHeader}"
 		sortable="true" />
 
-	<spring:message code="audits.title" var="titleHeader" />
+	<spring:message code="troblem.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />
 
-	<spring:message code="audits.description" var="descriptionHeader" />
+	<spring:message code="troblem.description" var="descriptionHeader" />
 	<display:column property="description" title="${descriptionHeader}"
 		sortable="true" />
 
-	<spring:message code="audits.gauge" var="gaugeHeader" />
+	<spring:message code="troblem.gauge" var="gaugeHeader" />
 	<display:column property="gauge" title="${gaugeHeader}" sortable="true" />
 
-	<spring:message code="audits.format.moment" var="pattern"></spring:message>
-	<spring:message code="audits.moment" var="momentHeader" />
+	<spring:message code="troblem.format.moment" var="pattern"></spring:message>
+	<spring:message code="troblem.moment" var="momentHeader" />
 	<display:column property="moment" title="${momentHeader}"
 		sortable="true" format="${pattern}" />
 
-	<spring:message code="audits.draftMode" var="draftMode" />
+	<spring:message code="troblem.draftMode" var="draftMode" />
 		<display:column title="${draftMode}" sortable="true">
 			<jstl:if test="${row.draftMode==true}">
 				<div style="width: 30px; height: 30px; margin-left: 20px;">
@@ -69,7 +69,7 @@
 			</jstl:if>
 		</display:column>
 
-	<spring:message code="audits.newspaper" var="display" />
+	<spring:message code="troblem.newspaper" var="display" />
 	<display:column title="${display}" sortable="true">
 		<jstl:if test="${row.newspaper!=null}">
 		<spring:url value="newspaper/admin/display.do" var="displayURL">
@@ -79,12 +79,12 @@
 		</jstl:if>
 	</display:column>
 
-	<spring:message code="audits.delete" var="delete" />
+	<spring:message code="troblem.delete" var="delete" />
 	<display:column title="${delete}" sortable="true">
-		<spring:url value="audits/admin/delete.do" var="editURL">
-			<spring:param name="auditsId" value="${row.id}" />
+		<spring:url value="troblem/admin/delete.do" var="editURL">
+			<spring:param name="troblemId" value="${row.id}" />
 		</spring:url>
-		<a href="${editURL}"><spring:message code="audits.delete" /></a>
+		<a href="${editURL}"><spring:message code="troblem.delete" /></a>
 	</display:column>
 
 </display:table>
