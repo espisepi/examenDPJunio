@@ -1,2 +1,3 @@
 - A un Troblem se le puede asignar cualquier newspaper, independientemente de si está publicado o no lo está el Newspaper
 - Un Troblem puede estar guardado en modo borrador sin asignarle ningún Newspaper, pero si se quiere guardar en modo final se le tiene que asignar un Newspaper obligatoriamente
+- Un Troblem se puede eliminar tanto si está en modo borrador o en modo final, pero solo se puede editar si está en modo borrador
