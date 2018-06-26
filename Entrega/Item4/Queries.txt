@@ -1,0 +1,7 @@
+- A query that returns the ratio of newspapers with at least one troblem
+
+select (select count(n) from Newspaper n where n.troblemList.size!=0)/(count(n)*1.0) from Newspaper n
+
+- A query that returns the administrator/s who has written more troblems
+
+select a from Admin a where a.troblemList.size=(select max(a.troblemList.size) from Admin a)

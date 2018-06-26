@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import domain.Admin;
 import domain.Troblem;
 
 @Repository
@@ -17,7 +18,7 @@ public interface TroblemRepository extends JpaRepository<Troblem, Integer> {
 	Double query1();
 
 	@Query("select a from Admin a where a.troblemList.size=(select max(a.troblemList.size) from Admin a)")
-	Collection<Troblem> query2();
+	Collection<Admin> query2();
 
 	@Query("select a from Troblem a where a.admin.id=?1")
 	Collection<Troblem> findByAdminId(int adminId);
